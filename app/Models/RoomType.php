@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class RoomType extends Model
 {
     protected $fillable = [
-        'external_id',
         'name',
+        'description',
     ];
 
     public function rooms(): HasMany

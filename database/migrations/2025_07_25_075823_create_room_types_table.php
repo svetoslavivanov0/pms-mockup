@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('room_types', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('external_id')->unique();
             $table->string('name');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

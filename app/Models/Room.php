@@ -9,15 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Room extends Model
 {
     protected $fillable = [
-        'external_id',
-        'name',
-        'room_type_id'
+        'number',
+        'floor'
     ];
-
-    public function roomType(): BelongsTo
-    {
-        return $this->belongsTo(RoomType::class);
-    }
 
     public function bookings(): HasMany
     {
