@@ -160,6 +160,9 @@ class PMSService
         }
     }
 
+    /**
+     * @throws InvalidDataException
+     */
     private function validateData(
         array $data,
         array $requiredFields,
