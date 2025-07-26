@@ -148,7 +148,7 @@ class PMSServiceTest extends TestCase
 
         $this->assertEquals($id, $dto->externalId);
         $this->assertEquals($roomId, $dto->roomId);
-        $this->assertEquals($roomType, $dto->roomType);
+        $this->assertEquals($roomType, $dto->roomTypeId);
         $this->assertEquals('test', $dto->status);
         $this->assertEquals('test', $dto->notes);
         $this->assertEquals([1], $dto->guestIds);
