@@ -28,7 +28,7 @@ class SyncBookingJob implements ShouldQueue
     use Dispatchable;
     use SerializesModels;
 
-    public function __construct(private $bookingExternalId)
+    public function __construct(private readonly int $bookingExternalId)
     {
     }
 

@@ -27,8 +27,8 @@ class SyncPMSBookingsTest extends TestCase
         Http::fake([
             '*' => Http::response([
                 'data' => [
-                    ['id' => 101],
-                    ['id' => 102],
+                    101,
+                    102,
                 ]
             ], 200),
         ]);
@@ -46,7 +46,7 @@ class SyncPMSBookingsTest extends TestCase
     {
         Http::fake(function ($request) {
             $this->assertStringContainsString('updated_at.gt=2025-07-01', $request->url());
-            return Http::response(['data' => [['id' => 1]]], 200);
+            return Http::response(['data' => [1]], 200);
         });
 
         $this->artisan('app:sync-bookings --updated-after=2025-07-01')
