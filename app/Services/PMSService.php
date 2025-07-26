@@ -21,6 +21,8 @@ class PMSService
 {
     private string $baseUrl;
     private const int REQUESTS_PER_SECOND = 2;
+    private const int DELAY_IN_SECONDS = 10;
+    private const int MAX_ATTEMPTS = 10;
 
     public function __construct()
     {
@@ -108,10 +110,10 @@ class PMSService
     {
         $this->rateLimit($endpoint);
 
-        $response = Http::timeout(10)->get($this->baseUrl . $endpoint, $query);
+        $response = Http::timeout(self::DELAY_IN_SECONDS)->get($this->baseUrl . $endpoint, $query);
 
         if ($response->status() === Response::HTTP_TOO_MANY_REQUESTS) {
-            if ($attempt >= 10) {
+            if ($attempt >= self::MAX_ATTEMPTS) {
                 throw new Exception("Exceeded max retries due to rate limiting on {$endpoint}");
             }
 
