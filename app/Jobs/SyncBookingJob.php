@@ -44,7 +44,7 @@ class SyncBookingJob implements ShouldQueue
             /** @var BookingDTO $bookingDTO */
             $bookingDTO = $this->fetchWithRateLimiting(fn() => $pmsService->getBooking($this->bookingExternalId));
             $roomDTO = $this->fetchWithRateLimiting(fn() => $pmsService->getRoom($bookingDTO->roomId));
-            $roomTypeDTO = $this->fetchWithRateLimiting(fn() => $pmsService->getRoomType($bookingDTO->roomType));
+            $roomTypeDTO = $this->fetchWithRateLimiting(fn() => $pmsService->getRoomType($bookingDTO->roomTypeId));
 
             $guestDTOs = [];
             foreach ($bookingDTO->guestIds as $guestId) {

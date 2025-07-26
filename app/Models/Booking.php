@@ -15,7 +15,7 @@ class Booking extends Model
         'arrival_date',
         'departure_date',
         'room_id',
-        'room_type',
+        'room_type_id',
         'status',
         'notes',
     ];

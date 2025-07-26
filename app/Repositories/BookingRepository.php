@@ -25,7 +25,7 @@ class BookingRepository implements RepositoryInterface
                 'arrival_date' => $data->arrivalDate,
                 'departure_date' => $data->departureDate,
                 'room_id' => $data->roomId,
-                'room_type' => $data->roomType,
+                'room_type_id' => $data->roomTypeId,
                 'status' => $data->status,
                 'notes' => $data->notes,
             ]

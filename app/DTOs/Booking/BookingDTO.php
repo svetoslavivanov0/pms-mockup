@@ -11,7 +11,7 @@ class BookingDTO implements BaseDTO
 {
     public string $externalId;
     public int $roomId;
-    public int $roomType;
+    public int $roomTypeId;
     public string $status;
     public ?string $notes = null;
     public array $guestIds;
@@ -21,7 +21,7 @@ class BookingDTO implements BaseDTO
     public function __construct(array $data) {
         $this->externalId = (string)$data['external_id'];
         $this->roomId = (int)$data['room_id'];
-        $this->roomType = (int)$data['room_type_id'];
+        $this->roomTypeId = (int)$data['room_type_id'];
         $this->status = $data['status'];
         $this->notes = $data['notes'] ?? null;
         $this->guestIds = $data['guest_ids'];

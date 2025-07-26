@@ -22,13 +22,15 @@ return new class extends Migration
                 ->references('external_id')
                 ->on('rooms')
                 ->onDelete('cascade');
-            $table->foreignId('room_type')
+            $table->foreignId('room_type_id')
                 ->references('external_id')
                 ->on('room_types')
                 ->onDelete('cascade');
             $table->string('status');
             $table->text('notes')->nullable();
             $table->timestamps();
+
+            $table->index('external_id');
         });
     }
 
