@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('external_id')->unique();
-            $table->bigInteger('number');
+            $table->bigInteger('number')->unique();
             $table->integer('floor');
             $table->timestamps();
         });

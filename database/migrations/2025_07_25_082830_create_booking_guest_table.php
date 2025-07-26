@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('booking_id')->constrained()->onDelete('cascade');
             $table->foreignId('guest_id')->constrained()->onDelete('cascade');
             $table->timestamps();
+
+            $table->unique(['booking_id', 'guest_id']);
         });
     }
 
