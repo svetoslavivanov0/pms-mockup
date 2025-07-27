@@ -63,16 +63,6 @@ class SyncBookingJob implements ShouldQueue
                 $booking = $bookingRepository->updateOrCreate($bookingDTO);
                 $bookingRepository->syncGuests($booking, $guestIds);
             });
-        } catch (RateLimitExceededException $e) {
-            Log::info('Rate limit exceeded, retrying job after delay: ' . $e->getMessage(), [
-                'booking_id' => $this->bookingExternalId,
-                'retry_after' => $e->getRetryAfter(),
-                'endpoint' => $e->getEndpoint(),
-                'attempt' => $e->getNextAttempt(),
-            ]);
-
-            $this->release($e->getRetryAfter());
-
         } catch (Exception $e) {
             Log::error('Failed to sync booking: ' . $e->getMessage(), [
                 'booking_id' => $this->bookingExternalId,

@@ -110,10 +110,6 @@ class SyncBookingJobTest extends TestCase
             ->once()
             ->andThrow($exception);
 
-        $job->shouldReceive('release')
-            ->once()
-            ->with($delay);
-
         $job->handle($pms, $bookingRepository, $guestRepository, $roomRepository, $roomTypeRepository);
 
         $this->assertTrue(true);
